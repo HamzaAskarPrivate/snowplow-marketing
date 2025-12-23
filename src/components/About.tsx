@@ -16,7 +16,7 @@ const values = [
   {
     icon: Target,
     title: 'Mission-Driven',
-    description: 'We\'re committed to making winter safer and more manageable for communities worldwide.',
+    description: 'We&apos;re committed to making winter safer and more manageable for communities worldwide.',
   },
   {
     icon: Lightbulb,
@@ -60,7 +60,7 @@ export default function About() {
             </p>
             <p className="text-lg text-slate-400 mb-8">
               Founded by a team of robotics engineers and winter weather experts,
-              we\'ve developed autonomous snow removal systems that work around the
+              we&apos;ve developed autonomous snow removal systems that work around the
               clock, in any conditions, without human intervention.
             </p>
             <p className="text-lg text-slate-400">

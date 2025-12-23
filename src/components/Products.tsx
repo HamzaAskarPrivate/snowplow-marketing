@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Check, Snowflake, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const products = [
