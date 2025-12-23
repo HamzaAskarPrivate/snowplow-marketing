@@ -52,7 +52,7 @@ export default function Footer() {
                 <div className="absolute inset-0 w-10 h-10 bg-sky-400/30 blur-xl rounded-full" />
               </div>
               <span className="text-2xl font-bold">
-                Snow<span className="text-sky-400">Plow</span>
+                Snow<span className="text-sky-400">PlowBot</span>
               </span>
             </Link>
             <p className="text-slate-400 mb-6 max-w-xs">
@@ -141,7 +141,7 @@ export default function Footer() {
         <div className="mt-16 pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-400 text-sm">
-              © {new Date().getFullYear()} SnowPlow Robotics. All rights reserved.
+              © {new Date().getFullYear()} SnowPlowBot Robotics. All rights reserved.
             </p>
             <div className="flex items-center space-x-6 text-sm text-slate-400">
               <span>Made with ❄️ in Minneapolis</span>

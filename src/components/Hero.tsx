@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Play, Snowflake } from 'lucide-react';
 import Link from 'next/link';
 
@@ -36,6 +36,8 @@ interface SnowflakeData {
 
 export default function Hero() {
   const [snowflakes, setSnowflakes] = useState<SnowflakeData[]>([]);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   useEffect(() => {
     const data = [...Array(SNOW_CONFIG.SNOWFLAKE_COUNT)].map(() => ({
@@ -68,7 +70,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen hero-gradient overflow-hidden">
+    <section ref={ref} className="relative min-h-screen hero-gradient overflow-hidden">
       {/* Enhanced animated snowflakes background with varied sizes and depths */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {snowflakes.map((snowflake, i) => (

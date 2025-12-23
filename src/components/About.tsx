@@ -54,7 +54,7 @@ export default function About() {
               <span className="gradient-text"> Snow Management</span>
             </h2>
             <p className="text-xl text-slate-400 mb-6">
-              SnowPlow Robotics was born from a simple observation: traditional snow
+              SnowPlowBot Robotics was born from a simple observation: traditional snow
               removal is inefficient, expensive, and often unreliable. We set out to
               change that.
             </p>
