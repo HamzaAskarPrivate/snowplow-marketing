@@ -43,7 +43,7 @@ export default function Navbar() {
               <div className="absolute inset-0 w-10 h-10 bg-sky-400/30 blur-xl rounded-full" />
             </div>
             <span className="text-2xl font-bold text-white tracking-tight">
-              Snow<span className="text-sky-400">Plow</span>
+              Snow<span className="text-sky-400">PlowBot</span>
             </span>
           </Link>
 
@@ -125,7 +125,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="p-6 border-t border-white/5 text-center">
-                <p className="text-gray-500 text-sm">© 2025 SnowPlow Robotics</p>
+                <p className="text-gray-500 text-sm">© 2025 SnowPlowBot Robotics</p>
               </div>
             </motion.div>
           </>

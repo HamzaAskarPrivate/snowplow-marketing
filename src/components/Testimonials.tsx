@@ -66,9 +66,10 @@ export default function Testimonials() {
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Trusted by <span className="gradient-text">Leaders</span>
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            See what our customers have to say about their experience with SnowPlow Robotics.
-          </p>
+                    <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                      See what our customers have to say about their experience with
+                      SnowPlowBot Robotics.
+                    </p>
         </motion.div>
 
         {/* Desktop Grid */}

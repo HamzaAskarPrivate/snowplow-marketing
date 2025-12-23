@@ -201,11 +201,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="font-semibold mb-1">Email</div>
-                    <div className="text-slate-400">
-                      sales@snowplowrobotics.com<br />
-                      support@snowplowrobotics.com
-                    </div>
-                  </div>
+                                    <div className="text-slate-400">
+                                      sales@snowplowbotrobotics.com<br />
+                                      support@snowplowbotrobotics.com
+                                    </div>                  </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
@@ -224,7 +223,7 @@ export default function Contact() {
 
               <div className="mt-8 pt-8 border-t border-slate-700">
                 <p className="text-slate-400 text-sm">
-                  Ready to see SnowPlow in action? Schedule a demo at your location
+                  Ready to see SnowPlowBot in action? Schedule a demo at your location
                   and experience the future of snow removal firsthand.
                 </p>
               </div>

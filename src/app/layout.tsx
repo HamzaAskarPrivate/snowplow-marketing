@@ -13,18 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SnowPlow Robotics | Autonomous Snow Removal Technology",
+  title: "SnowPlowBot Robotics | Autonomous Snow Removal Technology",
   description: "Experience the future of snow management with our AI-powered autonomous robotic plows. Efficient, eco-friendly, and always ready for action. Serving residential, commercial, and industrial clients.",
   keywords: "snow plow robot, autonomous snow removal, AI snow plow, robotic snow remover, commercial snow removal, residential snow plow, eco-friendly snow removal",
   openGraph: {
-    title: "SnowPlow Robotics | Autonomous Snow Removal Technology",
+    title: "SnowPlowBot Robotics | Autonomous Snow Removal Technology",
     description: "Experience the future of snow management with AI-powered autonomous robotic plows.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SnowPlow Robotics",
+    title: "SnowPlowBot Robotics",
     description: "Autonomous Snow Removal Technology",
   },
 };
