@@ -1,32 +1,50 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight, Snowflake } from 'lucide-react';
 import Link from 'next/link';
 
+interface DecorationData {
+  x: string;
+  y: string;
+  duration: number;
+}
+
 export default function CTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [decorations, setDecorations] = useState<DecorationData[]>([]);
+
+  useEffect(() => {
+    const data = [...Array(10)].map(() => ({
+      x: Math.random() * 100 + '%',
+      y: Math.random() * 100 + '%',
+      duration: 20 + Math.random() * 10,
+    }));
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setDecorations(data);
+  }, []);
 
   return (
     <section className="py-24 bg-gradient-to-br from-sky-500 via-sky-600 to-blue-700 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(10)].map((_, i) => (
+        {decorations.map((deco, i) => (
           <motion.div
             key={i}
             className="absolute text-white/10"
             initial={{
-              x: Math.random() * 100 + '%',
-              y: Math.random() * 100 + '%',
+              x: deco.x,
+              y: deco.y,
             }}
             animate={{
               rotate: 360,
             }}
             transition={{
-              duration: 20 + Math.random() * 10,
+              duration: deco.duration,
               repeat: Infinity,
               ease: 'linear'
             }}

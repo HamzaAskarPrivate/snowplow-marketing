@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, Snowflake } from 'lucide-react';
 import Link from 'next/link';
@@ -24,30 +25,71 @@ const getSnowflakeOpacity = (index: number) => {
   return opacities[index % opacities.length];
 };
 
+interface SnowflakeData {
+  x: string;
+  rotate: number;
+  scale: number;
+  duration: number;
+  delay: number;
+  xOffset: number;
+}
+
 export default function Hero() {
+  const [snowflakes, setSnowflakes] = useState<SnowflakeData[]>([]);
+
+  useEffect(() => {
+    const data = [...Array(SNOW_CONFIG.SNOWFLAKE_COUNT)].map(() => ({
+      x: Math.random() * 100 + '%',
+      rotate: Math.random() * 180,
+      scale: 0.8 + Math.random() * 0.4,
+      duration: SNOW_CONFIG.MIN_DURATION + Math.random() * (SNOW_CONFIG.MAX_DURATION - SNOW_CONFIG.MIN_DURATION),
+      delay: Math.random() * SNOW_CONFIG.MAX_DELAY,
+      xOffset: Math.random() * 100,
+    }));
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setSnowflakes(data);
+  }, []);
+
+  // To prevent hydration mismatch, only render snowflakes on client
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <section className="relative min-h-screen hero-gradient overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+          {/* Static content or loading state */}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative min-h-screen hero-gradient overflow-hidden">
       {/* Enhanced animated snowflakes background with varied sizes and depths */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(SNOW_CONFIG.SNOWFLAKE_COUNT)].map((_, i) => (
+        {snowflakes.map((snowflake, i) => (
           <motion.div
             key={i}
             className={`absolute ${getSnowflakeOpacity(i)}`}
             initial={{
-              x: Math.random() * 100 + '%',
+              x: snowflake.x,
               y: -20,
               rotate: 0,
-              scale: 0.8 + Math.random() * 0.4
+              scale: snowflake.scale
             }}
             animate={{
               y: '110vh',
-              rotate: 360 + Math.random() * 180,
-              x: `calc(${Math.random() * 100}% + ${Math.sin(i) * 50}px)`
+              rotate: 360 + snowflake.rotate,
+              x: `calc(${snowflake.xOffset}% + ${Math.sin(i) * 50}px)`
             }}
             transition={{
-              duration: SNOW_CONFIG.MIN_DURATION + Math.random() * (SNOW_CONFIG.MAX_DURATION - SNOW_CONFIG.MIN_DURATION),
+              duration: snowflake.duration,
               repeat: Infinity,
-              delay: Math.random() * SNOW_CONFIG.MAX_DELAY,
+              delay: snowflake.delay,
               ease: 'linear'
             }}
           >
@@ -114,7 +156,7 @@ export default function Hero() {
                 <motion.div
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.5 + index * 0.1 }}
                   className="text-center lg:text-left"
                 >
